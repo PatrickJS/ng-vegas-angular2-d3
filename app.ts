@@ -1,5 +1,5 @@
-/// <reference path="../typings/angular2/angular2.d.ts" />
-/// <reference path="../typings/d3/d3.d.ts" />
+/// <reference path="typings/angular2/angular2.d.ts" />
+/// <reference path="typings/d3/d3.d.ts" />
 
 import {bootstrap} from 'angular2/angular2';
 import {Component, Directive, View, onChange} from 'angular2/annotations';
@@ -7,6 +7,7 @@ import {ElementRef} from 'angular2/src/core/compiler/element_ref';
 import {Inject} from 'angular2/di';
 import * as d3 from 'd3';
 
+debugger;
 @Directive({
   selector: 'bar-graph',
   lifecycle: [onChange],
@@ -23,7 +24,10 @@ class BarGraph {
   constructor(@Inject(ElementRef) elementRef: ElementRef) {
     this.el = elementRef.domElement;
     this.graph = d3.select(this.el);
-    this.divs = this.graph.append('div').attr('class', 'chart').selectAll('div');
+    this.divs = this.graph.
+      append('div').
+      attr('class', 'chart').
+      selectAll('div');
   }
   onChange(oldValue, newValue) {
     this.render(newValue);
@@ -56,6 +60,7 @@ class BarGraph {
 })
 class App {
   graphData: Array<number>;
+
   constructor() {
     this.graphData = [10,20,30,40,60];
   }

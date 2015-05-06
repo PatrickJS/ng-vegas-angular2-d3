@@ -1,11 +1,15 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
   <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.89/traceur-runtime.js"></script>
-  <script src="https://jspm.io/system@0.16.js"></script>
+  <script src="https://cdn.rawgit.com/ModuleLoader/es6-module-loader/v0.16.6/dist/es6-module-loader-sans-promises.js"></script>
+  <script src="https://cdn.rawgit.com/systemjs/systemjs/0.16.11/dist/system.js"></script>
   <script src="bundle/angular2.dev.js"></script>
   <script src="bundle/router.dev.js"></script>
   <script src="bundle/d3.js"></script>
+  <script src="app.js"></script>
+
   <style>
     .node circle {
       fill: #fff;
@@ -53,7 +57,7 @@
   </app>
 
   <script>
-    System.import('src/app');
+    System.import('app');
   </script>
 </body>
 </html>

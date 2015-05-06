@@ -2,15 +2,16 @@
   "version": "1.5.0",
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "system",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "listFiles": true
   },
   "files": [
-    "./src/app.ts",
-    "./typings/angular2/angular2.d.ts"
+    "./app.ts"
   ]
 }
