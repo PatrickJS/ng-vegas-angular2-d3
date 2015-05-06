@@ -5,6 +5,10 @@ interface ElementRef {
   domElement()
 }
 
+declare module "angular2/visibility" {
+  function Parent();
+  function Ancestor();
+}
 declare module "angular2/angular2" {
   function bootstrap(appComponentType: any): void;
   function Component({
@@ -70,6 +74,7 @@ declare module "angular2/annotations" {
   var onDestroy: string;
   var onAllChangesDone: string;
   function Attribute(attributeName: string);
+  function Parent();
 
   function Component({
   selector,
@@ -125,4 +130,10 @@ declare module "angular2/annotations" {
 declare module "angular2/src/core/compiler/element_ref" {
 
   function ElementRef();
+}
+
+declare module "angular2/di" {
+
+  function Inject(any);
+  function bind(any);
 }
