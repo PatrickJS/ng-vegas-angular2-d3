@@ -2,53 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.89/traceur-runtime.js"></script>
-  <script src="https://cdn.rawgit.com/ModuleLoader/es6-module-loader/v0.16.6/dist/es6-module-loader-sans-promises.js"></script>
-  <script src="https://cdn.rawgit.com/systemjs/systemjs/0.16.11/dist/system.js"></script>
+  <script src="bundle/traceur-runtime.js"></script>
+  <script src="bundle/es6-module-loader-sans-promises.js"></script>
+  <script src="bundle/system.js"></script>
   <script src="bundle/angular2.dev.js"></script>
   <script src="bundle/router.dev.js"></script>
   <script src="bundle/d3.js"></script>
-  <script src="app.js"></script>
-
-  <style>
-    .node circle {
-      fill: #fff;
-      stroke: steelblue;
-      stroke-width: 1.5px;
-    }
-    .node {
-      font: 10px sans-serif;
-    }
-    .link {
-      fill: none;
-      stroke: #ccc;
-      stroke-width: 1.5px;
-    }
-    .chart {
-      background: #eee;
-      padding: 3px;
-    }
-
-    .chart div {
-      width: 0;
-      transition: all 1s ease-out;
-      -moz-transition: all 1s ease-out;
-      -webkit-transition: all 1s ease-out;
-    }
-
-    .chart div {
-      font: 10px sans-serif;
-      background-color: steelblue;
-      text-align: right;
-      padding: 3px;
-      margin: 5px;
-      color: white;
-      box-shadow: 2px 2px 2px #666;
-    }
-    .title {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
+  <link href="app.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 

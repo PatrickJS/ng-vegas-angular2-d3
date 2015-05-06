@@ -34,25 +34,24 @@ if (typeof __param !== "function") __param = function (paramIndex, decorator) {
                 d3 = _d3;
             }],
         execute: function() {
-            debugger;
             BarGraph = (function () {
                 function BarGraph(elementRef) {
-                    this.el = elementRef.domElement;
-                    this.graph = d3.select(this.el);
-                    this.divs = this.graph.
+                    var el = elementRef.domElement;
+                    var graph = d3.select(el);
+                    this.divs = graph.
                         append('div').
                         attr('class', 'chart').
                         selectAll('div');
                 }
-                BarGraph.prototype.onChange = function (oldValue, newValue) {
-                    this.render(newValue);
-                };
                 BarGraph.prototype.render = function (newValue) {
                     if (newValue === void 0) { newValue = this.data; }
                     this.divs.data(newValue).enter().append('div')
                         .transition().ease("elastic")
                         .style('width', function (d) { return d + '%'; })
                         .text(function (d) { return d + '%'; });
+                };
+                BarGraph.prototype.onChange = function (oldValue, newValue) {
+                    this.render(newValue);
                 };
                 BarGraph = __decorate([
                     annotations_1.Directive({
