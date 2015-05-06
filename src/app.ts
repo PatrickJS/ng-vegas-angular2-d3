@@ -2,62 +2,64 @@
 /// <reference path="../typings/d3/d3.d.ts" />
 
 import {bootstrap} from 'angular2/angular2';
-import {Component, Directive, View, onChange, Attribute} from 'angular2/annotations';
+import {Component, Directive, View, onChange} from 'angular2/annotations';
 import {ElementRef} from 'angular2/src/core/compiler/element_ref';
-import {For} from 'angular2/directives';
-import {json} from 'd3';
+import {Inject} from 'angular2/di';
+import * as d3 from 'd3';
 
 @Directive({
-  selector: 'd3',
-  lifecycle: [onChange]
+  selector: 'bar-graph',
+  lifecycle: [onChange],
+  properties: {
+    data: 'data'
+  }
 })
-class D3 {
+class BarGraph {
+  elementRef: ElementRef;
+  data: Array<number>;
+  graph;
+  divs;
   el;
-  elementRef: ElementRef
-  constructor(elementRef: ElementRef) {
+  constructor(@Inject(ElementRef) elementRef: ElementRef) {
     this.el = elementRef.domElement;
+    this.graph = d3.select(this.el);
+    this.divs = this.graph.append('div').attr('class', 'chart').selectAll('div');
   }
-  onChange() {
-    this.render();
+  onChange(oldValue, newValue) {
+    this.render(newValue);
   }
-  render() {
-    console.log(json);
-    // d3 code
+  render(newValue = this.data) {
+    this.divs.data(newValue).enter().append('div')
+      .transition().ease("elastic")
+        .style('width', function(d) { return d + '%'; })
+        .text(function(d) { return d + '%'; });
   }
 }
+
 
 @Component({
   selector: 'app'
 })
 @View({
   template: `
-  <h1>Not todo</h1>
-  <ul *for="var todo of todos">
-    <li>
-      {{ todo }}
-    </li>
-  </ul>
-  <form (submit)="addTodo($event, textbox.value)">
-    <input type="text" #textbox autofocus>
-    <button>Add</button>
-  </form>
+  <h1 class="title">Angular 2 + d3</h1>
+
+  <bar-graph
+    bind-data="graphData"
+    width="900"
+    height="1000"
+  >
+  </bar-graph>
+
   `,
-  directives: [ For ]
+  directives: [ BarGraph ]
 })
 class App {
-  todos: string[];
-
+  graphData: Array<number>;
   constructor() {
-    this.todos = ["hello"];
+    this.graphData = [10,20,30,40,60];
   }
 
-  addTodo(event: Event, newTodo: string) {
-    event.preventDefault();
-    console.log(json);
-    debugger;
-
-    this.todos.push(newTodo);
-  }
 }
 
 bootstrap(App);
