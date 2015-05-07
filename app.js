@@ -44,14 +44,15 @@ if (typeof __param !== "function") __param = function (paramIndex, decorator) {
                         selectAll('div');
                 }
                 BarGraph.prototype.render = function (newValue) {
-                    if (newValue === void 0) { newValue = this.data; }
+                    if (!newValue)
+                        return;
                     this.divs.data(newValue).enter().append('div')
-                        .transition().ease("elastic")
+                        .transition().ease('elastic')
                         .style('width', function (d) { return d + '%'; })
                         .text(function (d) { return d + '%'; });
                 };
-                BarGraph.prototype.onChange = function (oldValue, newValue) {
-                    this.render(newValue);
+                BarGraph.prototype.onChange = function () {
+                    this.render(this.data);
                 };
                 BarGraph = __decorate([
                     annotations_1.Directive({

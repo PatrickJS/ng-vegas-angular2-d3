@@ -19,6 +19,7 @@ class BarGraph {
   data: Array<number>;
   divs: any;
   constructor(@Inject(ElementRef) elementRef: ElementRef) {
+
     var el:any    = elementRef.domElement;
     var graph:any = d3.select(el);
 
@@ -28,15 +29,18 @@ class BarGraph {
       selectAll('div');
   }
 
-  render(newValue = this.data) {
+  render(newValue) {
+    if (!newValue) return;
+
     this.divs.data(newValue).enter().append('div')
-      .transition().ease("elastic")
-        .style('width', function(d) { return d + '%'; })
-        .text(function(d) { return d + '%'; });
+      .transition().ease('elastic')
+      .style('width', d => d + '%')
+      .text(d => d + '%');
+
   }
 
-  onChange(oldValue, newValue) {
-    this.render(newValue);
+  onChange() {
+    this.render(this.data);
   }
 }
 
