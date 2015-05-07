@@ -4,7 +4,7 @@
 TypeScript 1.5 beta will include everything you need. Until that is released,
 we use a GitHub reference to the latest alpha.
 
-    $ npm install -g typescript@^1.5.0-beta
+    $ npm install -g mhegazy/TypeScript#v1.5-beta2
 
 ## Start up the compiler
 
