@@ -1,10 +1,12 @@
 # Angular 2, d3, and TypeScript
 
+[![NgVegas Angular2 + d3](http://img.youtube.com/vi/x296y5mErWI/0.jpg)](http://www.youtube.com/watch?v=x296y5mErWI)
+
 ## Use latest TypeScript compiler
 TypeScript 1.5 beta will include everything you need. Until that is released,
 we use a GitHub reference to the latest alpha.
 
-    $ npm install -g mhegazy/TypeScript#v1.5-beta2
+    $ npm install -g typescript@^1.5.0-beta
 
 ## Start up the compiler
 
