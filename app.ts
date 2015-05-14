@@ -2,8 +2,7 @@
 /// <reference path="typings/d3/d3.d.ts" />
 
 import {bootstrap} from 'angular2/angular2';
-import {Component, Directive, View, onChange} from 'angular2/annotations';
-import {ElementRef} from 'angular2/src/core/compiler/element_ref';
+import {Component, Directive, View, Attribute, onChange, ElementRef} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import * as d3 from 'd3';
 
@@ -15,17 +14,25 @@ import * as d3 from 'd3';
   }
 })
 class BarGraph {
-  elementRef: ElementRef;
   data: Array<number>;
   divs: any;
-  constructor(@Inject(ElementRef) elementRef: ElementRef) {
+  constructor(
+    @Inject(ElementRef) elementRef: ElementRef,
+    @Attribute('width') width: string,
+    @Attribute('height') height: string) {
 
     var el:any    = elementRef.domElement;
     var graph:any = d3.select(el);
 
     this.divs = graph.
       append('div').
-      attr('class', 'chart').
+      attr({
+        'class': 'chart'
+      }).
+      style({
+        'width':  width  + 'px',
+        'height': height + 'px',
+      }).
       selectAll('div');
   }
 
@@ -54,8 +61,8 @@ class BarGraph {
 
   <bar-graph
     bind-data="graphData"
-    width="900"
-    height="1000"
+    width="500"
+    height="130"
   >
   </bar-graph>
 

@@ -13,78 +13,67 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 };
 if (typeof __param !== "function") __param = function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
-};System.register(['angular2/angular2', 'angular2/annotations', 'angular2/src/core/compiler/element_ref', 'angular2/di', 'd3'], function(exports_1) {
-    var angular2_1, annotations_1, element_ref_1, di_1, d3;
-    var BarGraph, App;
-    return {
-        setters:[
-            function (_angular2_1) {
-                angular2_1 = _angular2_1;
-            },
-            function (_annotations_1) {
-                annotations_1 = _annotations_1;
-            },
-            function (_element_ref_1) {
-                element_ref_1 = _element_ref_1;
-            },
-            function (_di_1) {
-                di_1 = _di_1;
-            },
-            function (_d3) {
-                d3 = _d3;
-            }],
-        execute: function() {
-            BarGraph = (function () {
-                function BarGraph(elementRef) {
-                    var el = elementRef.domElement;
-                    var graph = d3.select(el);
-                    this.divs = graph.
-                        append('div').
-                        attr('class', 'chart').
-                        selectAll('div');
-                }
-                BarGraph.prototype.render = function (newValue) {
-                    if (!newValue)
-                        return;
-                    this.divs.data(newValue).enter().append('div')
-                        .transition().ease('elastic')
-                        .style('width', function (d) { return d + '%'; })
-                        .text(function (d) { return d + '%'; });
-                };
-                BarGraph.prototype.onChange = function () {
-                    this.render(this.data);
-                };
-                BarGraph = __decorate([
-                    annotations_1.Directive({
-                        selector: 'bar-graph',
-                        lifecycle: [annotations_1.onChange],
-                        properties: {
-                            data: 'data'
-                        }
-                    }),
-                    __param(0, di_1.Inject(element_ref_1.ElementRef)), 
-                    __metadata('design:paramtypes', [Object])
-                ], BarGraph);
-                return BarGraph;
-            })();
-            App = (function () {
-                function App() {
-                    this.graphData = [10, 20, 30, 40, 60];
-                }
-                App = __decorate([
-                    annotations_1.Component({
-                        selector: 'app'
-                    }),
-                    annotations_1.View({
-                        template: "\n  <h1 class=\"title\">Angular 2 + d3</h1>\n\n  <bar-graph\n    bind-data=\"graphData\"\n    width=\"900\"\n    height=\"1000\"\n  >\n  </bar-graph>\n\n  ",
-                        directives: [BarGraph]
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], App);
-                return App;
-            })();
-            angular2_1.bootstrap(App);
-        }
+};
+var angular2_1 = require('angular2/angular2');
+var angular2_2 = require('angular2/angular2');
+var di_1 = require('angular2/di');
+var d3 = require('d3');
+var BarGraph = (function () {
+    function BarGraph(elementRef, width, height) {
+        var el = elementRef.domElement;
+        var graph = d3.select(el);
+        this.divs = graph.
+            append('div').
+            attr({
+            'class': 'chart'
+        }).
+            style({
+            'width': width + 'px',
+            'height': height + 'px',
+        }).
+            selectAll('div');
     }
-});
+    BarGraph.prototype.render = function (newValue) {
+        if (!newValue)
+            return;
+        this.divs.data(newValue).enter().append('div')
+            .transition().ease('elastic')
+            .style('width', function (d) { return d + '%'; })
+            .text(function (d) { return d + '%'; });
+    };
+    BarGraph.prototype.onChange = function () {
+        this.render(this.data);
+    };
+    BarGraph = __decorate([
+        angular2_2.Directive({
+            selector: 'bar-graph',
+            lifecycle: [angular2_2.onChange],
+            properties: {
+                data: 'data'
+            }
+        }),
+        __param(0, di_1.Inject(angular2_2.ElementRef)),
+        __param(1, angular2_2.Attribute('width')),
+        __param(2, angular2_2.Attribute('height')), 
+        __metadata('design:paramtypes', [(typeof ElementRef !== 'undefined' && ElementRef) || Object, String, String])
+    ], BarGraph);
+    return BarGraph;
+})();
+var App = (function () {
+    function App() {
+        this.graphData = [10, 20, 30, 40, 60];
+    }
+    App = __decorate([
+        angular2_2.Component({
+            selector: 'app'
+        }),
+        angular2_2.View({
+            template: "\n  <h1 class=\"title\">Angular 2 + d3</h1>\n\n  <bar-graph\n    bind-data=\"graphData\"\n    width=\"500\"\n    height=\"130\"\n  >\n  </bar-graph>\n\n  ",
+            directives: [BarGraph]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], App);
+    return App;
+})();
+angular2_1.bootstrap(App);
 //# sourceMappingURL=app.js.map
