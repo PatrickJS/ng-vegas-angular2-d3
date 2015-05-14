@@ -651,23 +651,23 @@ declare module "angular2/angular2" {
   var ElementRef: any;
   var AncestorAnnotation: any;
   var ParentAnnotation: any;
-  interface OnChange {};
+  interface OnChange {}
   var ViewAnnotation: any;
-  interface ApplicationRef {};
+  interface ApplicationRef {}
   var appComponentRefToken: any;
   var appComponentAnnotatedTypeToken: any;
   var QueryAnnotation: any;
   var AttributeAnnotation: any;
-  interface QueryList {};
-  interface CompilerCache {};
-  interface Compiler {};
-  interface TemplateLoader {};
-  interface ShadowDomStrategy {};
-  interface NativeShadowDomStrategy {};
-  interface EmulatedScopedShadowDomStrategy {};
-  interface EmulatedUnscopedShadowDomStrategy {};
-  interface ComponentRef {};
-  interface DynamicComponentLoader {};
+  interface QueryList {}
+  interface CompilerCache {}
+  interface Compiler {}
+  interface TemplateLoader {}
+  interface ShadowDomStrategy {}
+  interface NativeShadowDomStrategy {}
+  interface EmulatedScopedShadowDomStrategy {}
+  interface EmulatedUnscopedShadowDomStrategy {}
+  interface ComponentRef {}
+  interface DynamicComponentLoader {}
   var ComponentAnnotation: any;
   var DirectiveAnnotation: any;
   var onDestroy: any;
@@ -679,33 +679,33 @@ declare module "angular2/angular2" {
   var Attribute: any;
   var Query: any;
   var coreDirectives: any;
-  interface CSSClass {};
-  interface NgSwitchWhen {};
-  interface NgSwitchDefault {};
+  interface CSSClass {}
+  interface NgSwitchWhen {}
+  interface NgSwitchDefault {}
   var VALID: any;
   var INVALID: any;
-  interface Control {};
-  interface ControlGroup {};
-  interface ControlArray {};
-  interface DefaultValueAccessor {};
-  interface CheckboxControlValueAccessor {};
-  interface ControlDirective {};
-  interface ControlGroupDirective {};
+  interface Control {}
+  interface ControlGroup {}
+  interface ControlArray {}
+  interface DefaultValueAccessor {}
+  interface CheckboxControlValueAccessor {}
+  interface ControlDirective {}
+  interface ControlGroupDirective {}
   var formDirectives: any;
-  interface Validators {};
-  interface RequiredValidatorDirective {};
-  interface FormBuilder {};
-  interface EventBinding {};
-  interface ElementBinder {};
-  interface DirectiveBinder {};
-  interface ProtoViewDto {};
-  interface DirectiveMetadata {};
-  interface RenderProtoViewRef {};
-  interface RenderViewRef {};
-  interface ViewDefinition {};
-  interface RenderCompiler {};
-  interface Renderer {};
-  interface EventDispatcher {};
+  interface Validators {}
+  interface RequiredValidatorDirective {}
+  interface FormBuilder {}
+  interface EventBinding {}
+  interface ElementBinder {}
+  interface DirectiveBinder {}
+  interface ProtoViewDto {}
+  interface DirectiveMetadata {}
+  interface RenderProtoViewRef {}
+  interface RenderViewRef {}
+  interface ViewDefinition {}
+  interface RenderCompiler {}
+  interface Renderer {}
+  interface EventDispatcher {}
 }
 
 declare module "angular2/di" {
