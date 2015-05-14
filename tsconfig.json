@@ -2,7 +2,7 @@
   "version": "1.5.0",
   "compilerOptions": {
     "target": "es5",
-    "module": "system",
+    "module": "commonjs",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
