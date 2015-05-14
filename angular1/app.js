@@ -9,14 +9,20 @@ angular.module('app', [])
     },
     controller: BarGraph
   };
-  function BarGraph($scope, $element) {
+  function BarGraph($scope, $element, $attrs) {
 
     var el    = $element[0];
     var graph = d3.select(el);
 
     var $divs = graph.
       append('div').
-      attr('class', 'chart').
+      attr({
+        'class': 'chart'
+      }).
+      style({
+        'width':  $attrs.width  + 'px',
+        'height': $attrs.height + 'px',
+      }).
       selectAll('div');
 
     function render(newValue){
