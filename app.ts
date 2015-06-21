@@ -1,17 +1,13 @@
-/// <reference path="typings/angular2/angular2.d.ts" />
-/// <reference path="typings/d3/d3.d.ts" />
-
-import {bootstrap} from 'angular2/angular2';
+/// <reference path="typings/tsd.d.ts" />
+import * as angular from 'angular2/angular2';
 import {Component, Directive, View, Attribute, onChange, ElementRef} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import * as d3 from 'd3';
 
 @Directive({
-  selector: 'bar-graph',
-  lifecycle: [onChange],
-  properties: {
-    data: 'data'
-  }
+  selector:   'bar-graph',
+  lifecycle:  [ onChange ],
+  properties: [ 'data' ]
 })
 class BarGraph {
   data: Array<number>;
@@ -56,6 +52,7 @@ class BarGraph {
   selector: 'app'
 })
 @View({
+  directives: [ BarGraph ],
   template: `
   <h1 class="title">Angular 2 + d3</h1>
 
@@ -66,8 +63,7 @@ class BarGraph {
   >
   </bar-graph>
 
-  `,
-  directives: [ BarGraph ]
+  `
 })
 class App {
   graphData: Array<number>;
@@ -77,4 +73,4 @@ class App {
 
 }
 
-bootstrap(App);
+angular.bootstrap(App, [/* AppInjector */]);

@@ -1,12 +1,13 @@
 // <script src="angular.js"></script>
 // <script src="d3.js"></script>
 
+
+
+
 angular.module('app', [])
 .directive('barGraph', function() {
   return {
-    scope: {
-      data: '=bindData'
-    },
+    scope: { data: '=bindData' },
     controller: BarGraph
   };
   function BarGraph($scope, $element, $attrs) {
@@ -38,11 +39,12 @@ angular.module('app', [])
   }
 });
 
-// angular.module('app')
-// .controller('AppController', function($scope){
-//   $scope.graphData = [10,20,30,40,60];
-// });
-/**/
+/*
+angular.module('app')
+.controller('AppController', function($scope){
+  $scope.graphData = [10,20,30,40,60];
+});
+*/
 angular.module('app')
 .directive('app', function() {
   return {

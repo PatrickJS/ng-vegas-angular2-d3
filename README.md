@@ -1,6 +1,8 @@
 # Angular 2, d3, and TypeScript
+> Angular 2.0.0-alpha.27 + d3 + TypeScript 1.5.0-beta
 
 [![NgVegas Angular2 + d3](http://img.youtube.com/vi/x296y5mErWI/0.jpg)](http://www.youtube.com/watch?v=x296y5mErWI)
+
 
 ## Use latest TypeScript compiler
 TypeScript 1.5 beta will include everything you need. Until that is released,
